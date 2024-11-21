@@ -1,0 +1,126 @@
+name: CI Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test_activerecord_v5_0:
+    runs-on: ubuntu-latest
+    name: Ruby 2.6.0 / ActiveRecord activerecord-5.0
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6.0
+      - name: Install dependencies
+        run: |
+          gem install bundler -v2.3.27
+          bundle install
+          bundle exec appraisal activerecord-5.0 bundle install
+      - name: Run tests
+        run: bundle exec appraisal activerecord-5.0 rake test
+
+  test_activerecord_v5_1:
+    runs-on: ubuntu-latest
+    name: Ruby 2.6.5 / ActiveRecord activerecord-5.1
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6.5
+      - name: Install dependencies
+        run: |
+          gem install bundler -v2.3.27
+          bundle install
+          bundle exec appraisal activerecord-5.1 bundle install
+      - name: Run tests
+        run: bundle exec appraisal activerecord-5.1 rake test
+
+  test_activerecord_v5_2:
+    runs-on: ubuntu-latest
+    name: Ruby 2.7.0 / ActiveRecord activerecord-5.2
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.0
+      - name: Install dependencies
+        run: |
+          gem install bundler -v2.3.27
+          bundle install
+          bundle exec appraisal activerecord-5.2 bundle install
+      - name: Run tests
+        run: bundle exec appraisal activerecord-5.2 rake test
+
+  test_activerecord_v6_0:
+    runs-on: ubuntu-latest
+    name: Ruby 3.0.0 / ActiveRecord activerecord-6.0
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0.0
+      - name: Install dependencies
+        run: |
+          gem install bundler -v2.4.2
+          bundle install
+          bundle exec appraisal activerecord-6.0 bundle install
+      - name: Run tests
+        run: bundle exec appraisal activerecord-6.0 rake test
+
+  test_activerecord_v6_1:
+    runs-on: ubuntu-latest
+    name: Ruby 3.1.0 / ActiveRecord activerecord-6.1
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.1.0
+      - name: Install dependencies
+        run: |
+          gem install bundler -v2.5.23
+          bundle install
+          bundle exec appraisal activerecord-6.1 bundle install
+      - name: Run tests
+        run: bundle exec appraisal activerecord-6.1 rake test
+
+  test_activerecord_v7_0:
+    runs-on: ubuntu-latest
+    name: Ruby 3.2.0 / ActiveRecord activerecord-7.0
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2.0
+      - name: Install dependencies
+        run: |
+          gem install bundler -v2.5.23
+          bundle install
+          bundle exec appraisal activerecord-7.0 bundle install
+      - name: Run tests
+        run: bundle exec appraisal activerecord-7.0 rake test
+
+  test_activerecord_v8_0:
+    runs-on: ubuntu-latest
+    name: Ruby 3.3.0 / ActiveRecord activerecord-8.0
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3.0
+      - name: Install dependencies
+        run: |
+          gem install bundler -v2.5.23
+          bundle install
+          bundle exec appraisal activerecord-8.0 bundle install
+      - name: Run tests
+        run: bundle exec appraisal activerecord-8.0 rake test
