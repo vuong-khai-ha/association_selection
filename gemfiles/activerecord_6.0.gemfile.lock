@@ -24,17 +24,25 @@ GEM
     concurrent-ruby (1.3.4)
     i18n (1.14.6)
       concurrent-ruby (~> 1.0)
-    mini_portile2 (2.8.8)
     minitest (5.25.1)
     rake (13.2.1)
-    sqlite3 (1.6.9)
-      mini_portile2 (~> 2.8.0)
+    sqlite3 (1.7.3-aarch64-linux)
+    sqlite3 (1.7.3-arm-linux)
+    sqlite3 (1.7.3-arm64-darwin)
+    sqlite3 (1.7.3-x86-linux)
+    sqlite3 (1.7.3-x86_64-darwin)
+    sqlite3 (1.7.3-x86_64-linux)
     thor (1.3.2)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     zeitwerk (2.6.18)
 
 PLATFORMS
+  aarch64-linux
+  arm-linux
+  arm64-darwin
+  x86-linux
+  x86_64-darwin
   x86_64-linux
 
 DEPENDENCIES
@@ -46,5 +54,8 @@ DEPENDENCIES
   rake
   sqlite3 (~> 1.4)
 
+RUBY VERSION
+   ruby 3.0.0p0
+
 BUNDLED WITH
-   2.4.2
+   2.5.23
