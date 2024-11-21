@@ -29,19 +29,19 @@ appraise 'activerecord-6.1' do
   ruby '3.1.0'
   gem 'activesupport', '~> 6.1'
   gem 'activerecord', '~> 6.1'
-  gem 'sqlite3', '~> 3.47.0'
+  gem 'sqlite3', '~> 1.4'
 end
 
 appraise 'activerecord-7.0' do
   ruby '3.2.0'
   gem 'activesupport', '~> 7.0'
   gem 'activerecord', '~> 7.0'
-  gem 'sqlite3', '~> 3.47.0'
+  gem 'sqlite3', '~> 2.3.0'
 end
 
 appraise 'activerecord-8.0' do
   ruby '3.3.0'
   gem 'activesupport', '~> 8.0'
   gem 'activerecord', '~> 8.0'
-  gem 'sqlite3', '~> 3.47.0'
+  gem 'sqlite3', '~> 2.3.0'
 end
