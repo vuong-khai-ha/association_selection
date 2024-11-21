@@ -73,7 +73,7 @@ end
 #### Query
 ```ruby
 # Preload employees with only selected fields
-departments = Department.assoc_select(:employees, :id, :name).includes(:employees)
+departments = Department.assoc_select(employees: %i[id name department_id]).includes(:employees)
 
 departments.each do |department|
   department.employees.each do |employee|
