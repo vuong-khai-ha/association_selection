@@ -9,6 +9,6 @@ gem "minitest"
 gem "rake"
 gem "activesupport", "~> 6.1"
 gem "activerecord", "~> 6.1"
-gem "sqlite3"
+gem "sqlite3", "~> 1.4"
 
 gemspec path: "../"
