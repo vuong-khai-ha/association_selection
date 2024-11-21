@@ -13,7 +13,13 @@ Gem::Specification.new do |spec|
   spec.summary       = 'Select fields for ActiveRecord associations'
   spec.description   = 'Provides functionality to specify fields to preload for ActiveRecord associations.'
 
-  spec.metadata      = {'rubygems_mfa_required' => 'true'}
+  spec.metadata = {
+    'bug_tracker_uri'       => 'https://github.com/vuong-khai-ha/association_selection/issues',
+    'changelog_uri'         => "https://github.com/vuong-khai-ha/association_selection/releases/tag/v#{AssociationSelection::VERSION}",
+    'source_code_uri'       => "https://github.com/vuong-khai-ha/association_selection/tree/v#{AssociationSelection::VERSION}",
+    'rubygems_mfa_required' => 'true',
+  }
+
   spec.files         = Dir['lib/**/*.rb', 'MIT-LICENSE', 'Rakefile', 'README.md']
   spec.require_paths = ['lib']
 
