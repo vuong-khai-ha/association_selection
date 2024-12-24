@@ -71,16 +71,38 @@ end
 
 
 #### Query
+**Without** `assoc_select`
 ```ruby
-# Preload employees with only selected fields
-departments = Department.assoc_select(employees: %i[id name department_id]).includes(:employees)
-
+departments = Department.includes(:employees).to_a
 departments.each do |department|
   department.employees.each do |employee|
-    puts employee.name # Only `id` and `name` are fetched from the database.
+    puts employee.name
   end
 end
 ```
+The generated SQL commands will be:
+```sql
+Department Load (0.1ms)  SELECT "departments".* FROM "departments"
+Employee Load (0.2ms)  SELECT "employees".* FROM "employees" WHERE "employees"."department_id" IN (1, 2, 3, 4, 5, 6)
+```
+
+**With** `assoc_select`
+```ruby
+departments = Department.assoc_select(employees: %i[id name department_id]).includes(:employees)
+departments.each do |department|
+  department.employees.each do |employee|
+    puts employee.name
+  end
+end
+```
+
+The generated SQL commands will be:
+```sql
+Department Load (0.1ms)  SELECT "departments".* FROM "departments"
+Employee Load (0.1ms)  SELECT "employees"."id", "employees"."name", "employees"."department_id" FROM "employees" WHERE "employees"."department_id" IN (1, 2, 3, 4, 5, 6)
+```
+
+Specifying the fields of associations is particularly useful in cases where associations have many fields or the data of unnecessary fields is too large.
 
 How It Works
 ---
